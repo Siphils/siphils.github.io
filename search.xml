@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Github Page + hexo 搭建的新家]]></title>
-    <url>%2F2017%2F07%2F11%2FGithub%20Page%20%2B%20hexo%20%E6%90%AD%E5%BB%BA%E7%9A%84%E6%96%B0%E5%AE%B6%2F</url>
-    <content type="text"><![CDATA[新搭建好的博客]]></content>
+    <title><![CDATA[Github Page + hexo 搭建的新博客]]></title>
+    <url>%2F2017%2F07%2F11%2FGithub%20Page%20%2B%20hexo%20%E6%90%AD%E5%BB%BA%E7%9A%84%E6%96%B0%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[纠结了好久，最终还是决定从wordpress转移到这里，使用github page+hexo搭建博客（轻便啊！）暂时还是用着https://siphils.github.io 这个域名等我写好导航页之后再把域名绑定过来吧还有好多东西没怎么修改 懒…今天就弄这么多 等有时间了再慢慢逐渐修改吧（用修改一词不过只是在原主题的基础上做点小变动罢了）]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
       <tags>
         <tag>碎碎念</tag>
       </tags>

@@ -13,6 +13,17 @@
 
 
 
+<!--Require password if want to read the article -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('文章加密了哦！输入密码访问：') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -93,16 +104,16 @@
 
 
 
-<meta name="description" content="Life is what you make it.">
+<meta name="description" content="Who am I?     An undergraduate.        A HUSTer.        Not a coder.  :P">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
+<meta property="og:title" content="关于我">
 <meta property="og:url" content="http://siphils.github.io/about/index.html">
 <meta property="og:site_name" content="Siphils Blog">
-<meta property="og:description" content="Life is what you make it.">
-<meta property="og:updated_time" content="2017-07-11T11:42:24.017Z">
+<meta property="og:description" content="Who am I?     An undergraduate.        A HUSTer.        Not a coder.  :P">
+<meta property="og:updated_time" content="2017-07-11T13:20:39.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="Life is what you make it.">
+<meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="Who am I?     An undergraduate.        A HUSTer.        Not a coder.  :P">
 
 
 
@@ -136,7 +147,7 @@
 
 
 
-  <title>about | Siphils Blog</title>
+  <title>关于我 | Siphils Blog</title>
   
 
 
@@ -322,7 +333,7 @@
   <div id="posts" class="posts-expand">
   <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
+	<h1 class="post-title" itemprop="name headline">关于我</h1>
 
 
 
@@ -330,7 +341,8 @@
 
     
     
-      
+      <p></p><h4>Who am I?</h4><br><p></p>
+<ul><br>    <li>An undergraduate.<br>    </li><br>    <li>A HUSTer.<br>    </li><br>    <li>Not a coder.  :P<br>    </li><br></ul>
     
   </div>
 
@@ -364,8 +376,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -386,6 +407,15 @@
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -471,6 +501,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Who am I?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -491,7 +537,7 @@
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Siphils</span>
 </div>
