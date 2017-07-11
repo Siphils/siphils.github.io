@@ -1782,7 +1782,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff09af;
+  background: #ff5e88;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1932,6 +1932,10 @@ img:hover {
 .with-love {
   display: inline-block;
   margin: 0 5px;
+}
+#busuanzi_container_site_pv::after {
+  content: "|";
+  padding: 10px;
 }
 .powered-by,
 .theme-info {
