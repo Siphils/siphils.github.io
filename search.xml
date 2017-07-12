@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一个粗糙简单的导航页面]]></title>
+    <url>%2F2017%2F07%2F12%2F%E4%B8%80%E4%B8%AA%E7%B2%97%E7%B3%99%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E9%A1%B5%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[对于一个不太熟悉HTML/CSS/JS的小白来说，弄出一个导航页的东西还是费了不少功夫。下午弄了一个coding pages，把导航页所有相关的东西全部放上面，把主域名siphils.com绑了上去，以后访问这个博客就要用blog.siphils.com啦没有响应式没有响应式没有响应式！（明天看看怎么搞出来）⊙﹏⊙ 估计改成响应式的时候要把垃圾代码全部改掉，布局也不太好。暂时就这样吧。。。]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Github Page + hexo 搭建的新博客]]></title>
     <url>%2F2017%2F07%2F11%2FGithub%20Page%20%2B%20hexo%20%E6%90%AD%E5%BB%BA%E7%9A%84%E6%96%B0%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[纠结了好久，最终还是决定从wordpress转移到这里，使用github page+hexo搭建博客（轻便啊！）暂时还是用着https://siphils.github.io 这个域名等我写好导航页之后再把域名绑定过来吧还有好多东西没怎么修改 懒…今天就弄这么多 等有时间了再慢慢逐渐修改吧（用修改一词不过只是在原主题的基础上做点小变动罢了）]]></content>
