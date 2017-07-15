@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[博客底部添加了一言]]></title>
+    <url>%2F2017%2F07%2F15%2F%E5%8D%9A%E5%AE%A2%E5%BA%95%E9%83%A8%E6%B7%BB%E5%8A%A0%E4%BA%86%E4%B8%80%E8%A8%80%2F</url>
+    <content type="text"><![CDATA[最近没什么事情做就随便加了点东西 一言- ヒトコト 简单来说，一言（ヒトコト）指的是就是一句话，可以是动漫中的台词，可以是小说中的语句，也可以是网络上的各种小段子。或是感动，或是开心，又或是单纯的回忆，来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。 Hitokoto API1.将下面这段代码放入HTML页面的head标签内1&lt;script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&amp;charset=utf-8"&gt;&lt;/script&gt; 2.将下面这段代码放入页面内需要展示一句话的位置即可1&lt;div id="hitokoto"&gt;&lt;script&gt;hitokoto()&lt;/script&gt;&lt;/div&gt;]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一个粗糙简单的导航页面]]></title>
     <url>%2F2017%2F07%2F12%2F%E4%B8%80%E4%B8%AA%E7%B2%97%E7%B3%99%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[对于一个不太熟悉HTML/CSS/JS的小白来说，弄出一个导航页的东西还是费了不少功夫。下午弄了一个coding pages，把导航页所有相关的东西全部放上面，把主域名siphils.com绑了上去，以后访问这个博客就要用blog.siphils.com啦没有响应式没有响应式没有响应式！（明天看看怎么搞出来）⊙﹏⊙ 估计改成响应式的时候要把垃圾代码全部改掉，布局也不太好。暂时就这样吧。。。]]></content>
