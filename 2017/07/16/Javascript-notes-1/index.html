@@ -1,0 +1,1317 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<!--Require password if want to read the article -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('文章加密了哦！输入密码访问：') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Javascript,FreeCodeCamp," />
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon1.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="我的FreeCodeCamp编码集Javascript参考文档一位Javascript初学者的一些笔记，慢慢积累吧。体会到了懂得使用方法和不懂使用方法的巨大差别……下面是一些算法自己的实现以及与一些dalao的比较">
+<meta name="keywords" content="Javascript,FreeCodeCamp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 学习笔记（一）">
+<meta property="og:url" content="http://blog.siphils.com/2017/07/16/Javascript-notes-1/index.html">
+<meta property="og:site_name" content="Siphils Blog">
+<meta property="og:description" content="我的FreeCodeCamp编码集Javascript参考文档一位Javascript初学者的一些笔记，慢慢积累吧。体会到了懂得使用方法和不懂使用方法的巨大差别……下面是一些算法自己的实现以及与一些dalao的比较">
+<meta property="og:updated_time" content="2017-07-16T14:34:22.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 学习笔记（一）">
+<meta name="twitter:description" content="我的FreeCodeCamp编码集Javascript参考文档一位Javascript初学者的一些笔记，慢慢积累吧。体会到了懂得使用方法和不懂使用方法的巨大差别……下面是一些算法自己的实现以及与一些dalao的比较">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.siphils.com/2017/07/16/Javascript-notes-1/"/>
+
+
+
+
+
+  <title>Javascript 学习笔记（一） | Siphils Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?69ca3b2574c7e1dce03a546c966f1915";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Siphils Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is what you make it.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.siphils.com/2017/07/16/Javascript-notes-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Siphils">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Siphils Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript 学习笔记（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T19:46:18+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="我的FreeCodeCamp编码集"><a href="#我的FreeCodeCamp编码集" class="headerlink" title="我的FreeCodeCamp编码集"></a><a href="https://www.freecodecamp.cn/siphils" target="_blank" rel="external">我的FreeCodeCamp编码集</a></h4><h4 id="Javascript参考文档"><a href="#Javascript参考文档" class="headerlink" title="Javascript参考文档"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference" target="_blank" rel="external">Javascript参考文档</a></h4><p>一位Javascript初学者的一些笔记，慢慢积累吧。体会到了懂得使用方法和不懂使用方法的巨大差别……<br>下面是一些算法自己的实现以及与一些dalao的比较<br><a id="more"></a></p>
+<hr>
+<ul>
+<li><h3 id="Reverse-a-String"><a href="#Reverse-a-String" class="headerlink" title="Reverse a String"></a>Reverse a String</h3><blockquote>
+<p>先把字符串转化成数组，再借助数组的reverse方法翻转数组顺序，最后把数组转化成字符串。</p>
+<p>你的结果必须得是一个字符串  </p>
+<ul>
+<li><code>reverseString(&quot;hello&quot;)</code> 应该返回一个字符串  </li>
+<li><code>reverseString(&quot;hello&quot;)</code> 应该返回 <code>&quot;olleh&quot;</code>  </li>
+<li><code>reverseString(&quot;Howdy&quot;)</code> 应该返回 <code>&quot;ydwoH&quot;</code>  </li>
+<li><code>reverseString(&quot;Greetings from Earth&quot;)</code> 应该返回 <code>&quot;htraE morf sgniteerG&quot;</code>  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>部分提示:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//String.split()</div><div class="line">    //Example</div><div class="line">    var str = <span class="string">"hello world"</span>;</div><div class="line">    var arr = str.split(<span class="string">" "</span>);</div><div class="line">    console.log(arr);   //  [<span class="string">"hello"</span>,<span class="string">"wordl"</span>]</div></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//Array.reverse()</div><div class="line">    //Example</div><div class="line">    var arr = [1,2,3];</div><div class="line">    arr.reverse();</div><div class="line">    console.log(arr);   //  [3,2,1]</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//Array.join()</div><div class="line">    //Example</div><div class="line">    var arr = [<span class="string">"hello"</span>,<span class="string">"world"</span>];</div><div class="line">    var newArr = arr.join(<span class="string">" "</span>);</div><div class="line">    console.log(newArr);    //  hello world</div></pre></td></tr></table></figure>
+<p>我的想法：先用<code>String.split(&quot; &quot;)</code>将一句话根据空格分割开得到一个新的数组，然后将获得的数组使用方法<code>Array.reverse()</code>获得倒转后的数组。将这个数组每一个元素（<em>String</em>）视作一个<em>Array</em>，然后二重循环，第二重循环从末尾开始直至首元素依次存入一个新的数组，然后再使用方法<code>Array.join(&quot; &quot;)</code>得到倒转后的<em>String</em><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> reverseString(str) &#123;</div><div class="line">	var strArr = str.split(<span class="string">" "</span>);</div><div class="line">	strArr.reverse();</div><div class="line">	var newStr = <span class="string">""</span>;</div><div class="line">	var newArr = [];</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; strArr.length; i++) &#123;</div><div class="line">		<span class="keyword">for</span> (var j = strArr[i].length - 1; j &gt; -1; j--) &#123;</div><div class="line">			newStr += strArr[i][j];</div><div class="line">		&#125;</div><div class="line">		newArr.push(newStr);</div><div class="line">		newStr = <span class="string">""</span>;</div><div class="line">	&#125;</div><div class="line">	str = newArr.join(<span class="string">" "</span>);</div><div class="line">	<span class="built_in">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后是<a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a>（帮我解决过问题。。）的实现<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> reverseString(str) &#123;</div><div class="line">	<span class="built_in">return</span> str.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>从中理解的思路是直接用<code>String.split(&quot;&quot;)</code>将整个字符串分成一个个字母（包括空格在内）的一个数组，然后用<code>Array.reverse()</code>方法倒转，再用<code>Array.join(&quot;&quot;)</code>重新组成一个字符串。</p>
+<hr>
+<ul>
+<li><h3 id="Factorialize-a-Number"><a href="#Factorialize-a-Number" class="headerlink" title="Factorialize a Number"></a>Factorialize a Number</h3><blockquote>
+<p>计算一个整数的阶乘</p>
+<p>如果用字母n来代表一个整数，阶乘代表着所有小于或等于n的整数的乘积。</p>
+<p>阶乘通常简写成 n!</p>
+<p>例如: 5! = 1 <em> 2 </em> 3 <em> 4 </em> 5 = 120</p>
+<ul>
+<li><code>factorialize(5)</code> 应该返回一个数字  </li>
+<li><code>factorialize(5)</code> 应该返回 <code>120</code>.  </li>
+<li><code>factorialize(10)</code> 应该返回 <code>3628800</code>.  </li>
+<li><code>factorialize(20)</code> 应该返回 <code>2432902008176640000</code>.  </li>
+<li><code>factorialize(0)</code> 应该返回 <code>1</code>.  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>我的想法：解决阶乘比较经典的解法之一大概是递归吧<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> factorialize(num) &#123;</div><div class="line">	<span class="keyword">if</span> (num &gt; 1)</div><div class="line">		<span class="built_in">return</span> num * factorialize(num - 1);</div><div class="line">	<span class="keyword">else</span> <span class="built_in">return</span> 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> dalao的解法<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> factorialize(num) &#123;</div><div class="line">	<span class="built_in">return</span> num &gt; 1 ? num * factorialize(num - 1) : 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>? :</code> 一个运算符简化了<code>if...else</code>的写法</p>
+<hr>
+<ul>
+<li><h3 id="Check-for-Palindromes"><a href="#Check-for-Palindromes" class="headerlink" title="Check for Palindromes"></a>Check for Palindromes</h3><blockquote>
+<p>检查回文字符串</p>
+<p>如果给定的字符串是回文，返回true，反之，返回false。</p>
+<p>如果一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样，那么这个字符串就是palindrome(回文)。</p>
+<p>注意你需要去掉字符串多余的标点符号和空格，然后把字符串转化成小写来验证此字符串是否为回文。</p>
+<p>函数参数的值可以为”racecar”，”RaceCar”和”race CAR”。  </p>
+<ul>
+<li><code>palindrome(&quot;eye&quot;)</code> 应该返回一个布尔值  </li>
+<li><code>palindrome(&quot;eye&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>palindrome(&quot;race car&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>palindrome(&quot;not a palindrome&quot;)</code> 应该返回 <code>false</code>.  </li>
+<li><code>palindrome(&quot;A man, a plan, a canal. Panama&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>palindrome(&quot;never odd or even&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>palindrome(&quot;nope&quot;)</code> 应该返回 <code>false</code>.  </li>
+<li><code>palindrome(&quot;almostomla&quot;)</code> 应该返回 <code>false</code>.  </li>
+<li><code>palindrome(&quot;My age is 0, 0 si ega ym.&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>palindrome(&quot;1 eye for of 1 eye.&quot;)</code> 应该返回 <code>false</code>.  </li>
+<li><code>palindrome(&quot;0_0 (: /-\ :) 0-0&quot;)</code> 应该返回 <code>true</code>.  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>这个用到了正则表达式，由于我不太会正则表达式，就参考了下<a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> dalao的解法<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> palindrome(str) &#123;</div><div class="line">	var cleanStr = str.replace(/\W|_/g, <span class="string">""</span>).toLowerCase()</div><div class="line">	<span class="built_in">return</span> cleanStr === cleanStr.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中的 <code>clean.split(&quot;&quot;).reverse().join(&quot;&quot;)</code> 是之前<em>Reverse a String</em> 中他用到的解法。</p>
+<hr>
+<ul>
+<li><h3 id="Find-the-Longest-Word-in-a-String"><a href="#Find-the-Longest-Word-in-a-String" class="headerlink" title="Find the Longest Word in a String"></a>Find the Longest Word in a String</h3><blockquote>
+<p>找出最长单词</p>
+<p>在句子中找出最长的单词，并返回它的长度。</p>
+<p>函数的返回值应该是一个数字。</p>
+<ul>
+<li><code>findLongestWord(&quot;The quick brown fox jumped over the lazy dog&quot;)</code> 应该返回一个数字  </li>
+<li><code>findLongestWord(&quot;The quick brown fox jumped over the lazy dog&quot;)</code> 应该返回 <code>6</code>.  </li>
+<li><code>findLongestWord(&quot;May the force be with you&quot;)</code> 应该返回 <code>5</code>.  </li>
+<li><code>findLongestWord(&quot;Google do a barrel roll&quot;)</code> 应该返回 <code>6</code>.  </li>
+<li><code>findLongestWord(&quot;What is the average airspeed velocity of an unladen swallow&quot;)</code> 应该返回 <code>8</code>.  </li>
+<li><code>findLongestWord(&quot;What if we try a super-long word such as otorhinolaryngology&quot;)</code> 应该返回 <code>19</code>.  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>思路比较简单，直接上代码<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> findLongestWord(str) &#123;</div><div class="line">	str = str.split(<span class="string">" "</span>);</div><div class="line">	var strLenth = str[0].length;</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; str.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (strLenth &lt; str[i].length) strLenth = str[i].length;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> strLenth;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> 的解法暂时看不懂，在聊天室里有人提示我可以使用 <code>Math.max()</code>，于是查阅了一下参考手册。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//Math.max()</div><div class="line">    //Example</div><div class="line">    Math.(1,2,3);   //3</div><div class="line">    //为了得到数值数组，可以使用如下两种方法</div><div class="line">    //1.getMaxOfArray([1,2,3])等价于Math.max(1,2,3)</div><div class="line">    <span class="keyword">function</span> getMaxOfArray(numArray) &#123;</div><div class="line">    <span class="built_in">return</span> Math.max.apply(null, numArray);</div><div class="line">&#125;;</div><div class="line">    //2.使用最新的扩展语句spread operator</div><div class="line">    var arr = [1, 2, 3];</div><div class="line">    var max = Math.max(...arr);</div></pre></td></tr></table></figure></p>
+<p>重新整理了一下思路，修改为以下代码<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> findLongestWord(str) &#123;</div><div class="line">	var strArr = str.split(<span class="string">" "</span>);</div><div class="line">	var lenArr = [];</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; strArr.length; i++)</div><div class="line">		lenArr.push(strArr[i].length);</div><div class="line">	//<span class="built_in">return</span> Math.max(...lenArr);</div><div class="line">	<span class="built_in">return</span> Math.max.apply(null, lenArr);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li><h3 id="Title-Case-a-Sentence"><a href="#Title-Case-a-Sentence" class="headerlink" title="Title Case a Sentence"></a>Title Case a Sentence</h3><blockquote>
+<p>句中单词首字母大写</p>
+<p>确保字符串的每个单词首字母都大写，其余部分小写。</p>
+<p>像’the’和’of’这样的连接符同理。  </p>
+<ul>
+<li><code>titleCase(&quot;I&#39;m a little tea pot&quot;)</code> 应该返回一个字符串  </li>
+<li><code>titleCase(&quot;I&#39;m a little tea pot&quot;)</code> 应该返回 <code>&quot;I&#39;m A Little Tea Pot&quot;</code>.  </li>
+<li><code>titleCase(&quot;sHoRt AnD sToUt&quot;)</code> 应该返回 <code>&quot;Short And Stout&quot;</code>.  </li>
+<li><code>titleCase(&quot;HERE IS MY HANDLE HERE IS MY SPOUT&quot;)</code> 应该返回 <code>&quot;Here Is My Handle Here Is My Spout&quot;</code>.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>我的想法：先用 <code>String.toLowerCase()</code> 将字符串中所有字母换为小写， <code>String.split()</code> 然后将字符串分开为一个个字符串组成的数组，再利用 <code>String.substr()</code> 获得每个字符串的首字母作为一个字符串<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//String.substr()</div><div class="line">    //Example</div><div class="line">    var str = <span class="string">"abcdefghij"</span>;</div><div class="line"></div><div class="line">    console.log(<span class="string">"(1,2): "</span>    + str.substr(1,2));   // (1,2): bc</div><div class="line">    console.log(<span class="string">"(-3,2): "</span>   + str.substr(-3,2));  // (-3,2): hi</div><div class="line">    console.log(<span class="string">"(-3): "</span>     + str.substr(-3));    // (-3): hij</div><div class="line">    console.log(<span class="string">"(1): "</span>      + str.substr(1));     // (1): bcdefghij</div><div class="line">    console.log(<span class="string">"(-20, 2): "</span> + str.substr(-20,2)); // (-20, 2): ab</div><div class="line">    console.log(<span class="string">"(20, 2): "</span>  + str.substr(20,2));  // (20, 2):</div></pre></td></tr></table></figure></p>
+<p>再用 <code>String.toUpperCase()</code> 换成大写字母。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> titleCase(str) &#123;</div><div class="line">	var strArr = str.toLowerCase().split(<span class="string">" "</span>);</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; strArr.length; i++)</div><div class="line">		strArr[i] = strArr[i].substr(0, 1).toUpperCase() + strArr[i].substr(1);</div><div class="line">	str = strArr.join(<span class="string">" "</span>);</div><div class="line">	<span class="built_in">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> dalao的方法<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> titleCase(str) &#123;</div><div class="line">	<span class="built_in">return</span> str.split(<span class="string">' '</span>).map(v =&gt; v[0].toUpperCase() + v.slice(1).toLowerCase()).join(<span class="string">' '</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中使用了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external"><code>Array.prototype.map()</code></a> 方法，先mark以后再看。</p>
+<hr>
+<ul>
+<li><h3 id="Return-Largest-Numbers-in-Arrays"><a href="#Return-Largest-Numbers-in-Arrays" class="headerlink" title="Return Largest Numbers in Arrays"></a>Return Largest Numbers in Arrays</h3><blockquote>
+<p>找出多个数组中的最大数</p>
+<p>右边大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。</p>
+<p>提示：你可以用for循环来迭代数组，并通过arr[i]的方式来访问数组的每个元素。</p>
+<ul>
+<li><code>largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]])</code> 应该返回一个数组  </li>
+<li><code>largestOfFour([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]])</code> 应该返回 <code>[27,5,39,1001]</code>.  </li>
+<li><code>largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]])</code> 应该返回 <code>[9, 35, 97, 1000000]</code>.  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>我的思路：使用二重循环，内层循环里直接挨个找最大值，外层循环用<code>Array.push()</code> 放进一个新的数组里<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> largestOfFour(arr) &#123;</div><div class="line">	var newArr = [];</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		var maxNum = arr[i][0];</div><div class="line">		<span class="keyword">for</span> (var j = 0; j &lt; arr[i].length; j++) &#123;</div><div class="line">			<span class="keyword">if</span> (maxNum &lt; arr[i][j]) maxNum = arr[i][j];</div><div class="line">		&#125;</div><div class="line">		newArr.push(maxNum);</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> newArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后聊天室里有人提醒我可以用<code>Math.max()</code>，于是将代码修改如下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> largestOfFour(arr) &#123;</div><div class="line">	var newArr = [];</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; arr.length; i++)</div><div class="line">		newArr.push(Math.max.apply(null, arr[i]));</div><div class="line">		//newArr.push(Math.max(arr[i)</div><div class="line">	<span class="built_in">return</span> newArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a>dalao的代码<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const largestOfFour = (a) =&gt; a.map(b =&gt; Math.max(...b));</div><div class="line"></div><div class="line">/*<span class="keyword">function</span> largestOfFour(arr) &#123;</div><div class="line">	<span class="built_in">return</span> arr.map(sa =&gt; Math.max(...sa));</div><div class="line">&#125;*/</div><div class="line"></div><div class="line"></div><div class="line">/*<span class="keyword">function</span> largestOfFour(arr) &#123;</div><div class="line">	// You can <span class="keyword">do</span> this!</div><div class="line">	<span class="keyword">for</span> (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		arr[i].sort(<span class="keyword">function</span>(a, b) &#123;</div><div class="line">			<span class="built_in">return</span> b - a;</div><div class="line">		&#125;);</div><div class="line">		arr[i] = arr[i][0];</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> arr;</div><div class="line">&#125;*/</div></pre></td></tr></table></figure></p>
+<p>看到<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="external"><code>Array.sort()</code></a>，吓得我赶紧回头复习了一下相关的知识。</p>
+<hr>
+<ul>
+<li><h3 id="Confirm-the-Ending"><a href="#Confirm-the-Ending" class="headerlink" title="Confirm the Ending"></a>Confirm the Ending</h3><blockquote>
+<p>检查字符串结尾</p>
+<p>判断一个字符串 <em>(str)</em> 是否以指定的字符串 <em>(target)</em> 结尾。</p>
+<p>如果是，返回<code>true</code>;如果不是，返回<code>false</code>。</p>
+<ul>
+<li><code>confirmEnding(&quot;Bastian&quot;, &quot;n&quot;)</code> 应该返回 <code>true</code>.  </li>
+<li><code>confirmEnding(&quot;Connor&quot;, &quot;n&quot;)</code> 应该返回 <code>false</code>.  </li>
+<li><code>confirmEnding(&quot;Walking on water and developing software from a specification are easy if both are frozen&quot;, &quot;specification&quot;)</code> 应该返回  <code>false</code>.</li>
+<li><code>confirmEnding(&quot;He has to give me a new name&quot;, &quot;name&quot;)</code> 应该返回 <code>true</code>.</li>
+<li><code>confirmEnding(&quot;He has to give me a new name&quot;, &quot;me&quot;)</code> 应该返回 <code>true</code>.</li>
+<li><code>confirmEnding(&quot;He has to give me a new name&quot;, &quot;na&quot;)</code> 应该返回 <code>false</code>.</li>
+<li><code>confirmEnding(&quot;If you want to save our world, you must hurry. We dont know how much longer we can withstand the nothing&quot;, &quot;mountain&quot;)</code> 应该返回 <code>false</code>.  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>我的想法：使用<code>String.substr()</code> 方法获取从<em>String</em>末尾开始的指定长度的字符串与<em>target</em>进行比对。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> confirmEnding(str, target) &#123;</div><div class="line">	<span class="built_in">return</span> (str.substr(-target.length) == target);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> dalao的方法<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> confirmEnding(str, target) &#123;</div><div class="line">	// <span class="string">"Never give up and good luck will find you."</span></div><div class="line">	// -- Falcor</div><div class="line">	<span class="built_in">return</span> str.slice(-target.length) == target;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中<code>String.slice()</code>和我使用的<code>String.substr()</code>是有所区别的（还有<code>String.substring()</code>，具体参考文档吧~~）。</p>
+<hr>
+<ul>
+<li><h3 id="Repeat-a-string-repeat-a-string"><a href="#Repeat-a-string-repeat-a-string" class="headerlink" title="Repeat a string repeat a string"></a>Repeat a string repeat a string</h3><blockquote>
+<p>重复输出字符串</p>
+<p>（重要的事情说3遍）</p>
+<p>重复一个指定的字符串 num次，如果num是一个负数则返回一个空字符串。</p>
+<ul>
+<li><code>repeat(&quot;\*&quot;, 3)</code> 应该返回 <code>&quot;\*\*\*&quot;</code> .  </li>
+<li><code>repeat(&quot;abc&quot;, 3)</code> 应该返回 <code>&quot;abcabcabc&quot;</code>.  </li>
+<li><code>repeat(&quot;abc&quot;, 4)</code> 应该返回 <code>&quot;abcabcabcabc&quot;</code>.  </li>
+<li><code>repeat(&quot;abc&quot;, 1)</code> 应该返回 <code>&quot;abc&quot;</code>.  </li>
+<li><code>repeat(&quot;\*&quot;, 8)</code> 应该返回 <code>&quot;\*\*\*\*\*\*\*\*&quot;</code>.  </li>
+<li><code>repeat(&quot;abc&quot;, -2)</code> 应该返回 <code>&quot;&quot;</code>.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>我的想法：构造一个新的字符串，用循环按次数将旧的字符串连接到新的字符串中，再返回新的字符串。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> repeat(str, num) &#123;</div><div class="line">	var newStr = <span class="string">""</span>;</div><div class="line">	<span class="keyword">for</span> (var i = 1; i &lt;= num; i++)</div><div class="line">		newStr += str;</div><div class="line">	<span class="built_in">return</span> newStr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.freecodecamp.com/forkerino" target="_blank" rel="external">@forkerino</a> dalao的代码<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> repeatStringNumTimes(str, num) &#123;</div><div class="line">	// repeat after me</div><div class="line">	<span class="built_in">return</span> num &gt; 0 ? str.repeat(num) : <span class="string">""</span>;</div><div class="line">	//   var res = <span class="string">""</span>;</div><div class="line">	//   <span class="keyword">for</span> (var i = 0; i&lt;num; i++)&#123;</div><div class="line">	//     res += str;</div><div class="line">	//   &#125;</div><div class="line">	//   <span class="built_in">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>嗯…这次知道了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/repeat" target="_blank" rel="external"><code>String.repeat()</code></a>这个方法…（不得不说熟悉方法之后，好多问题都简单得不行）</p>
+<hr>
+<p>整理和码字大概用了一两个小时吧，一边整理一边复习其实也有不小的收获。  </p>
+<h2 id="Rome-was-not-built-in-a-day"><a href="#Rome-was-not-built-in-a-day" class="headerlink" title="Rome was not built in a day."></a><em>Rome was not built in a day.</em></h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+          
+            <a href="/tags/FreeCodeCamp/" rel="tag"><i class="fa fa-tag"></i> FreeCodeCamp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/15/Add-Hitokoto-at-bottom/" rel="next" title="博客底部添加了一言">
+                <i class="fa fa-chevron-left"></i> 博客底部添加了一言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Siphils" />
+          <p class="site-author-name" itemprop="name">Siphils</p>
+           
+              <p class="site-description motion-element" itemprop="description">我曾踏足山巅，也曾进入低谷，二者都让我受益良多。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Siphils" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/Roykeil" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://music.163.com/#/user/home?id=262885511" target="_blank" title="Music">
+                  
+                    <i class="fa fa-fw fa-music"></i>
+                  
+                  Music
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Friends
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yunrui.online/" title="yunruirui" target="_blank">yunruirui</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Siphils</span>
+</div>
+
+
+
+<div class="powered-by">
+<span id="busuanzi_container_site_uv">
+  <i class="fa fa-user-md"></i>&nbsp;UV:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="powered-by">
+<span id="busuanzi_container_site_pv">
+  <i class="fa fa-eye"></i>&nbsp;PV:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<!--LWL Hitokoto-->
+<script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+<div id="lwlhitokoto">
+  「&nbsp;&nbsp;<script>lwlhitokoto()</script>&nbsp;」
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
