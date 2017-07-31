@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[感觉折腾了那么久却进步不大]]></title>
+    <url>%2F2017%2F07%2F31%2Fdont-be-in-a-hurry%2F</url>
+    <content type="text"><![CDATA[其实呢，感觉自己是有点浮躁了，才入门多久就妄图一口吃成个胖子？几乎是不太可能的事情吧。大概也是自己看到别人有那么多那么棒的作品，自己也急着想做出一些那样的东西。还是希望自己能戒骄戒躁，假期里安安心心地分配一定时间出来学习前端的一些技术，开学期间能保持学习成绩的前提下逐渐提高技术水平。希望自己能记住这样的一句话—— Rome was not built in a day.]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+      <tags>
+        <tag>碎碎念</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[给博客更换了字体]]></title>
     <url>%2F2017%2F07%2F25%2Fuse-new-font%2F</url>
     <content type="text"><![CDATA[新字体：浪漫雅圆又是闲着没事干，随便弄了点东西。这个字体是我在逛一个博客时候看到的。打开next主题的_config.yml文件，找到如下字段12345678910111213141516171819202122232425262728293031323334353637font: enable: true # Uri of fonts host. E.g. //fonts.googleapis.com (Default) host: # Global font settings used on &lt;body&gt; element. global: # external: true will load this font family from host. external: true family: Lato # Font settings for Headlines (h1, h2, h3, h4, h5, h6) # Fallback to `global` font settings. headings: external: true family: # Font settings for posts # Fallback to `global` font settings. posts: external: true family: # Font settings for Logo # Fallback to `global` font settings. # The `size` option use `px` as unit logo: external: true family: size: # Font settings for &lt;code&gt; and code blocks. codes: external: true family: size: 将font:设置为enable: true，再将host后面输入字体库的地址（省略http:）。然后在global一栏里将family设置为浪漫雅圆就可以将全站字体设置为这个啦~]]></content>
