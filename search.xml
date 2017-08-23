@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[感觉折腾了那么久却进步不大]]></title>
-    <url>%2F2017%2F07%2F31%2Fdont-be-in-a-hurry%2F</url>
-    <content type="text"><![CDATA[其实呢，感觉自己是有点浮躁了，才入门多久就妄图一口吃成个胖子？几乎是不太可能的事情吧。大概也是自己看到别人有那么多那么棒的作品，自己也急着想做出一些那样的东西。还是希望自己能戒骄戒躁，假期里安安心心地分配一定时间出来学习前端的一些技术，开学期间能保持学习成绩的前提下逐渐提高技术水平。希望自己能记住这样的一句话—— Rome was not built in a day.]]></content>
+    <title><![CDATA[好久不见，各位]]></title>
+    <url>%2F2017%2F08%2F23%2Flong-time-no-see%2F</url>
+    <content type="text"><![CDATA[好久不见，各位最近事情确实有点多（不只是代码，还有游戏，hhhhh），博客已经一段时间没有更新过了。最近把笔记本的windows10重装了，然后装上了Fedora双系统。在家里的台式电脑重装系统的间隙写下了这篇文章。 最近的状态 下个月24号要考计算机二级（C++），所以最近又在重新翻看C++ primer plus这本书。最近总是有点三心二意的。 Javascript学的不安分（其实是因为二级考试临近，很久不看C++了也是忘了很多）。 重写了一遍导航页面。 沉迷Pixiv的排行榜上面的大触的作品，于是几乎从零开始学Python的语法和爬虫并花了三天左右的时间写出一个一身是bug的爬虫，之后在排行榜上爬了差不多十个G的图片（天天舔屏幕）。除了下载在本地，还把爬虫放在自己的服务器上面保存每日top50的数据在json文件里，并且找了个瀑布流的源码用ajax加载json每天12点自动更新。Pixiv Top 50 daily。 看到别人的一些网站的服务器状态监控页面，于是自己在uptimerobot注册了个帐号并且把自己的页面都添加了进去。我的服务器状态监控页面。 注册了几个新的域名并且提交备案（差不多都备案好了）。 开始在着手自己另一个typecho博客的主题的代码编写（从零开始学php不算是吧hhh，因为初三时自学过一点），自己辣鸡的php和css和js水平还是给自己带来了不少的麻烦（一边写一边搜各种文档，效率很低），并且沉迷于pjax无缝刷新技术（我表示这个是比较大的坑），一知半解的水平还是有比较大的局限性的——一方面效率是比较低，另一方面很多都做不出自己想要的效果并且各种坑还特别难填上。 总体来说，还是先把c++复习好准备好考试，据说二级是比较简单但那么久没看了还是比较虚的…… 接下来的任务（无论轻松还是复杂，都要认真对待每一项任务） 复习好c++，二级考个好成绩 完善爬P站图片的Python爬虫 学习javascript 完成自己的第一个typecho主题，尽量做到让其支持pjax技术]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>碎碎念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Github Page + hexo 搭建的新博客]]></title>
+    <url>%2F2017%2F08%2F23%2FGithub-Page-hexo-new-blog%2F</url>
+    <content type="text"><![CDATA[纠结了好久，最终还是决定从wordpress转移到这里，使用github page+hexo搭建博客（轻便啊！）暂时还是用着https://siphils.github.io 这个域名等我写好导航页之后再把域名绑定过来吧还有好多东西没怎么修改 懒…今天就弄这么多 等有时间了再慢慢逐渐修改吧（用修改一词不过只是在原主题的基础上做点小变动罢了）]]></content>
       <categories>
         <category>碎碎念</category>
       </categories>
@@ -68,17 +79,6 @@
       </categories>
       <tags>
         <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Github Page + hexo 搭建的新博客]]></title>
-    <url>%2F2017%2F07%2F11%2FGithub-Page-hexo-new-blog%2F</url>
-    <content type="text"><![CDATA[纠结了好久，最终还是决定从wordpress转移到这里，使用github page+hexo搭建博客（轻便啊！）暂时还是用着https://siphils.github.io 这个域名等我写好导航页之后再把域名绑定过来吧还有好多东西没怎么修改 懒…今天就弄这么多 等有时间了再慢慢逐渐修改吧（用修改一词不过只是在原主题的基础上做点小变动罢了）]]></content>
-      <categories>
-        <category>碎碎念</category>
-      </categories>
-      <tags>
-        <tag>碎碎念</tag>
       </tags>
   </entry>
 </search>
