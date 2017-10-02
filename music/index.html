@@ -75,18 +75,16 @@
 
 
 
-<meta name="description" content="“看吧，很简单吧，没有人会受伤的世界完成了。”">
+<meta name="description" content="var r = new XMLHttpRequest();     r.open(&quot;GET&quot;, &quot;https://siphils.com/api/&quot;);     r.send();     r.onreadystatechange = function() {         if(200 == r.status &amp;&amp; 4 == r.readyState)         {">
 <meta property="og:type" content="website">
 <meta property="og:title" content="歌单">
 <meta property="og:url" content="http://blog.siphils.com/music/index.html">
 <meta property="og:site_name" content="Siphils Blog">
-<meta property="og:description" content="“看吧，很简单吧，没有人会受伤的世界完成了。”">
-<meta property="og:image" content="http://p1.music.126.net/naM2wAFst6IuIcdkRMPxOQ==/109951163032800060.jpg">
-<meta property="og:updated_time" content="2017-09-29T16:20:35.401Z">
+<meta property="og:description" content="var r = new XMLHttpRequest();     r.open(&quot;GET&quot;, &quot;https://siphils.com/api/&quot;);     r.send();     r.onreadystatechange = function() {         if(200 == r.status &amp;&amp; 4 == r.readyState)         {">
+<meta property="og:updated_time" content="2017-10-02T17:47:38.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="歌单">
-<meta name="twitter:description" content="“看吧，很简单吧，没有人会受伤的世界完成了。”">
-<meta name="twitter:image" content="http://p1.music.126.net/naM2wAFst6IuIcdkRMPxOQ==/109951163032800060.jpg">
+<meta name="twitter:description" content="var r = new XMLHttpRequest();     r.open(&quot;GET&quot;, &quot;https://siphils.com/api/&quot;);     r.send();     r.onreadystatechange = function() {         if(200 == r.status &amp;&amp; 4 == r.readyState)         {">
 
 
 
@@ -311,7 +309,22 @@
     
     
       <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=924409157&auto=0&height=430"></iframe></p>
-<div id="user-info"><center><br><a target="_blank" href="http://music.163.com/#/user/home?id=262885511"><img style="border-radius:50%;width: 100px;height: 100px;" src="http://p1.music.126.net/naM2wAFst6IuIcdkRMPxOQ==/109951163032800060.jpg"><span style="text-decoration: none;">“看吧，很简单吧，没有人会受伤的世界完成了。”</span></a></center><br></div>
+<p><div><center><br><a id="userUrl" target="_blank"><img id="avatarUrl" style="border-radius:50%;width: 100px;height: 100px;"><span id="nickname"></span><span id="signature" style="text-decoration: none;"></span></a></center><br></div></p>
+<script>
+    var r = new XMLHttpRequest();
+    r.open("GET", "https://siphils.com/api/");
+    r.send();
+    r.onreadystatechange = function() {
+        if(200 == r.status && 4 == r.readyState)
+        {
+            var data = JSON.parse(r.responseText);
+            document.getElementById("nickname").innerHTML = data.nickname;
+            document.getElementById("signature").innerHTML = data.signature;
+            document.getElementById("avatarUrl").setAttribute("src", data.avatarUrl);
+            document.getElementById("userUrl").setAttribute("href", data.userUrl);
+        }
+    };
+</script>
     
   </div>
 
