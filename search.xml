@@ -81,4 +81,15 @@
         <tag>折腾</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[Github Page + hexo 搭建的新博客]]></title>
+    <url>%2F2017%2F07%2F11%2FGithub-Page-hexo-new-blog%2F</url>
+    <content type="text"><![CDATA[纠结了好久，最终还是决定从wordpress转移到这里，使用github page+hexo搭建博客（轻便啊！）暂时还是用着 https://siphils.github.io 这个域名等我写好导航页之后再把域名绑定过来吧还有好多东西没怎么修改 懒…今天就弄这么多 等有时间了再慢慢逐渐修改吧（用修改一词不过只是在原主题的基础上做点小变动罢了）]]></content>
+      <categories>
+        <category>碎碎念</category>
+      </categories>
+      <tags>
+        <tag>碎碎念</tag>
+      </tags>
+  </entry>
 </search>
