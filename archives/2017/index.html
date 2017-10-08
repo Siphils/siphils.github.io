@@ -776,10 +776,17 @@
     NexT.Muse
   </a>
 </div>
-<!--LWL Hitokoto-->
-<script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
-<div id="lwlhitokoto">
-  「&nbsp;&nbsp;<script>lwlhitokoto()</script>&nbsp;」
+<!--Hitokoto-->
+<div id="hitokoto">
+<script>
+    var div = document.getElementById("hitokoto");
+    var r = new XMLHttpRequest();
+    r.open("GET", "https://sslapi.hitokoto.cn/?encode=text", true);
+    r.send();
+    r.onreadystatechange = function() {
+        div.innerHTML = "「&nbsp;&nbsp;" + r.responseText + "&nbsp;」";
+    }
+</script>
 </div>
 
 

@@ -62,7 +62,7 @@
   <entry>
     <title><![CDATA[博客底部添加了一言]]></title>
     <url>%2F2017%2F07%2F15%2FAdd-Hitokoto-at-bottom%2F</url>
-    <content type="text"><![CDATA[最近没什么事情做就随便加了点东西 一言- ヒトコト 简单来说，一言（ヒトコト）指的是就是一句话，可以是动漫中的台词，可以是小说中的语句，也可以是网络上的各种小段子。或是感动，或是开心，又或是单纯的回忆，来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。 Hitokoto API1.将下面这段代码放入HTML页面的head标签内1&lt;script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&amp;charset=utf-8"&gt;&lt;/script&gt; 2.将下面这段代码放入页面内需要展示一句话的位置即可1&lt;div id="hitokoto"&gt;&lt;script&gt;hitokoto()&lt;/script&gt;&lt;/div&gt;]]></content>
+    <content type="text"><![CDATA[最近没什么事情做就随便加了点东西 一言- ヒトコト 简单来说，一言（ヒトコト）指的是就是一句话，可以是动漫中的台词，可以是小说中的语句，也可以是网络上的各种小段子。或是感动，或是开心，又或是单纯的回忆，来到这里，留下你所喜欢的那一句句话，与大家分享，这就是一言存在的目的。 Hitokoto API将下面这段代码放入页面内需要展示一句话的位置即可1234567891011&lt;div id="hitokoto"&gt;&lt;script&gt; var div = document.getElementById("hitokoto"); var r = new XMLHttpRequest(); r.open("GET", "https://sslapi.hitokoto.cn/?encode=text", true); r.send(); r.onreadystatechange = function() &#123; div.innerHTML = "「&amp;nbsp;&amp;nbsp;" + r.responseText + "&amp;nbsp;」"; &#125;&lt;/script&gt;&lt;/div&gt;]]></content>
       <categories>
         <category>折腾</category>
       </categories>
