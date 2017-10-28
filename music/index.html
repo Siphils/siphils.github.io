@@ -75,16 +75,16 @@
 
 
 
-<meta name="description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://siphils.com/api/&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 == r.statu">
+<meta name="description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://api.siphils.com/163-music&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 =">
 <meta property="og:type" content="website">
 <meta property="og:title" content="歌单">
 <meta property="og:url" content="http://blog.siphils.com/music/index.html">
 <meta property="og:site_name" content="Siphils Blog">
-<meta property="og:description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://siphils.com/api/&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 == r.statu">
-<meta property="og:updated_time" content="2017-10-08T14:30:57.151Z">
+<meta property="og:description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://api.siphils.com/163-music&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 =">
+<meta property="og:updated_time" content="2017-10-28T11:29:34.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="歌单">
-<meta name="twitter:description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://siphils.com/api/&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 == r.statu">
+<meta name="twitter:description" content="window.onload = function() {     var r = new XMLHttpRequest();     r.open( &quot;GET&quot;, &quot;https://api.siphils.com/163-music&quot; );     r.send();     r.onreadystatechange = function() {         if ( 200 =">
 
 
 
@@ -313,16 +313,16 @@
 <script>
     window.onload = function() {
     var r = new XMLHttpRequest();
-    r.open( "GET", "https://siphils.com/api/" );
+    r.open( "GET", "https://api.siphils.com/163-music" );
     r.send();
     r.onreadystatechange = function() {
         if ( 200 == r.status && 4 == r.readyState ) {
             var data = JSON.parse( r.responseText );
-            document.getElementById( "nickname" ).innerHTML = data.nickname;
-            document.getElementById( "signature" ).innerHTML = data.signature;
-            document.getElementById( "avatarUrl" ).setAttribute( "src", data.avatarUrl );
+            document.getElementById( "nickname" ).innerHTML = data.data.nickname;
+            document.getElementById( "signature" ).innerHTML = data.data.signature;
+            document.getElementById( "avatarUrl" ).setAttribute( "src", data.data.avatarUrl );
             document.getElementById( "userUrl" ).removeAttribute("class");
-            document.getElementById( "userUrl" ).setAttribute( "href", data.userUrl );
+            document.getElementById( "userUrl" ).setAttribute( "href", data.data.userUrl );
         }
     };
 }
